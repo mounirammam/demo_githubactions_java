@@ -14,16 +14,16 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}  
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4                   # telecharger la repo dans le runner
 
       - name: Upload static files
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v3      # prends tout le contenu du dossier site et le prepare pour le deploiement
         with:
           path: site  
 
       - name: Deploy
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v4               # deploie le contenu prepare precedemment sur github pages
